@@ -20,6 +20,15 @@ The module name is provided as: $ARGUMENTS
 
 - Create `src/modules/$ARGUMENTS/components/index.ts` — empty barrel export with a placeholder comment.
 
+### pages/
+
+- Create `src/modules/$ARGUMENTS/pages/$ARGUMENTS/` directory.
+- Create `src/modules/$ARGUMENTS/pages/$ARGUMENTS/$ARGUMENTS.tsx` with a basic page component (named export using PascalCase of $ARGUMENTS).
+- Create `src/modules/$ARGUMENTS/pages/$ARGUMENTS/$ARGUMENTS.test.tsx` with a vitest test skeleton.
+- Create `src/modules/$ARGUMENTS/pages/$ARGUMENTS/index.ts` — barrel export for the page component.
+
+Page components define the layout of a route. Reusable UI pieces go in `components/`.
+
 ### hooks/
 
 - Create `src/modules/$ARGUMENTS/hooks/index.ts` — empty barrel export.
@@ -34,27 +43,31 @@ The module name is provided as: $ARGUMENTS
 
 ### store/
 
-- Create `src/modules/$ARGUMENTS/store/slices/` directory.
-- Create `src/modules/$ARGUMENTS/store/slices/$ARGUMENTS.slice.ts` with:
+- Create `src/modules/$ARGUMENTS/store/slices/<slice-name>/` directory (one folder per slice).
+- Create `src/modules/$ARGUMENTS/store/slices/<slice-name>/<slice-name>.ts` with:
   - A Zustand slice using the `StateCreator` type
   - An interface for the slice state and actions
   - A `create...Slice` function following the slice pattern
+- Create `src/modules/$ARGUMENTS/store/slices/<slice-name>/<slice-name>.test.ts` with a vitest test skeleton.
+- Create `src/modules/$ARGUMENTS/store/slices/<slice-name>/index.ts` — barrel export for the slice.
+- Create `src/modules/$ARGUMENTS/store/slices/index.ts` — barrel that re-exports all slices.
 - Create `src/modules/$ARGUMENTS/store/index.ts` with:
   - A bound store using `create()` that composes the slice(s)
   - Proper TypeScript typing for the combined store
 
+### Routes
+
+- Create `src/modules/$ARGUMENTS/$ARGUMENTS.routes.tsx` that imports the page from `./pages/$ARGUMENTS` and defines the module's route(s).
+
 ### Module barrel export
 
 - Create `src/modules/$ARGUMENTS/index.ts` that re-exports from:
-  - `./components`
-  - `./hooks`
-  - `./requests`
+  - `./pages/$ARGUMENTS`
   - `./store`
 
 ### Tests
 
 - Create `src/modules/$ARGUMENTS/requests/$ARGUMENTS.queries.test.ts` with a vitest test skeleton for the query hooks.
-- Create `src/modules/$ARGUMENTS/store/$ARGUMENTS.store.test.ts` with a vitest test skeleton for the store.
 
 ## Guidelines
 
