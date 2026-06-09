@@ -1,3 +1,9 @@
+---
+name: scaffold
+description: Generate a new feature module inside src/modules/ following project conventions
+allowed-tools: Bash(npm run build) Bash(npm test)
+---
+
 # /scaffold $ARGUMENTS
 
 Generate a new feature module inside `src/modules/`.

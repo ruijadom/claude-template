@@ -1,6 +1,12 @@
-# Project Rule: Accessibility
+---
+paths:
+  - "**/*.tsx"
+  - "**/*.jsx"
+  - "**/*.html"
+---
 
-When editing React components (*.tsx files):
+# Accessibility
+
 - Always use semantic HTML elements
 - Add ARIA labels to interactive elements
 - Ensure keyboard navigability

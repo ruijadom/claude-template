@@ -41,22 +41,27 @@ src/modules/<name>/
 ## Conventions
 
 ### Barrel Exports
+
 Every module has an `index.ts` that re-exports its public API. Consumers import from the module, never from internal paths.
 
 ### Store Pattern (Zustand)
+
 - Each module owns a **bound store** (`store/index.ts`) created with `create()`.
 - State is split into **slices** (`store/slices/`) — one file per concern, keeping files small and focused.
 - The bound store composes slices via the slice pattern.
 
 ### Requests
+
 - API calls live in `requests/` and use the shared Axios instance from `src/api/`.
 - Each request file exports React Query hooks (`useQuery` / `useMutation` wrappers).
 
 ### UI Components
+
 - `src/ui/` holds atomic, domain-free components (Button, Input, Modal, etc.).
 - Domain-specific components belong inside their module's `components/` folder.
 
 ### Hooks
+
 - `src/hooks/` holds shared, domain-free hooks.
 - Domain-specific hooks belong inside their module's `hooks/` folder.
 

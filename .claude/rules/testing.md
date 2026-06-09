@@ -1,4 +1,10 @@
-# Project Rule: Testing
+---
+paths:
+  - "src/**/*.ts"
+  - "src/**/*.tsx"
+---
+
+# Testing
 
 When creating new files:
 - Always create a corresponding test file

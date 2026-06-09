@@ -1,3 +1,9 @@
+---
+name: review
+description: Review the current git diff for code quality, security, performance, and test coverage
+allowed-tools: Bash(git diff *) Bash(git log *) Bash(git status)
+---
+
 # /review
 
 Review the current git diff for code quality and issues.

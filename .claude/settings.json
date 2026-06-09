@@ -30,6 +30,37 @@
         "autoCompact": true,
         "autoCompactThreshold": 80000
     },
+    "hooks": {
+        "PostToolUse": [
+            {
+                "matcher": "Edit|Write",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "./.claude/hooks/lint-format.sh",
+                        "timeout": 30
+                    },
+                    {
+                        "type": "command",
+                        "command": "./.claude/hooks/run-tests.sh",
+                        "timeout": 60
+                    }
+                ]
+            }
+        ],
+        "Stop": [
+            {
+                "matcher": "",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "./.claude/hooks/notify.sh",
+                        "timeout": 5
+                    }
+                ]
+            }
+        ]
+    },
     "mcpServers": {
         "chrome-devtools": {
             "command": "npx",
